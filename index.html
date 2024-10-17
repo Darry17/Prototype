@@ -3,22 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMA Time Series Forecasting</title>
-    <script src="main.js" defer></script>
+    <title>Hybrid Time Series Analysis</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>BMA Time Series Forecasting App</h1>
-    <button onclick="performForecast()">Start Forecasting</button>
-    <div id="results">
-        <h2>Combined Forecast:</h2>
-        <div id="forecastResult"></div>
-        <h2>Model Weights:</h2>
-        <ul>
-            <li>ARIMA Weight: <span id="weightARIMA"></span></li>
-            <li>LSTM Weight: <span id="weightLSTM"></span></li>
-            <li>Seasonal Weight: <span id="weightSeasonal"></span></li>
-        </ul>
-    </div>
+
+    <header>
+        <h1>Hybrid Time Series Analysis Tool</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Models</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="upload-section">
+            <h2>Upload Your Data</h2>
+            <input type="file" id="data-upload" accept=".csv">
+            <button id="preview-button">Preview Data</button>
+            <div id="data-preview"></div>
+        </div>
+
+        <div class="model-selection">
+            <h2>Select Models</h2>
+            <label><input type="checkbox" value="arima"> ARIMA</label>
+            <label><input type="checkbox" value="garch"> GARCH</label>
+            <label><input type="checkbox" value="lstm"> LSTM</label>
+            <input type="text" placeholder="ARIMA p" id="arima-p">
+            <input type="text" placeholder="LSTM Units" id="lstm-units">
+        </div>
+
+        <div class="prediction-settings">
+            <h2>Prediction Settings</h2>
+            <input type="number" id="forecast-horizon" placeholder="Forecast Horizon (days)">
+            <input type="date" id="start-date">
+            <input type="date" id="end-date">
+        </div>
+
+        <button id="run-analysis">Run Analysis</button>
+
+        <div class="results-display">
+            <h2>Results</h2>
+            <canvas id="results-chart"></canvas>
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>RMSE</th>
+                        <th>MAE</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <a href="https://github.com/yourprofile">GitHub</a>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
